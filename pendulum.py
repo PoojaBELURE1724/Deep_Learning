@@ -12,7 +12,7 @@ from os import path
 #Pooja BELURE
 
 import cv2
-path = 'C:\\Users\\POOJA\\Deep_Learning\\nature_2.png'
+path = 'pooja.png'
 ncol=200
 nrow=200
 ncolreal=5
@@ -21,14 +21,10 @@ step_size=5
 targetx= 16
 targety=16
 nA=4
-#Pooja BELURE Global parameter for height and width of DLink camera
 w = 0
 h = 0
 #nS= int( ncol/square_size*(ncol/square_size))
 nS=int((ncol-square_size)/step_size)*int((nrow-square_size)/step_size)
-#HA 14 Mars 2020 partie pour appeler un backend extÃ©rieur
-import requests
-import logging
 import cv2
 precision = [40,40]
 trackingFace=0
@@ -36,10 +32,8 @@ first_frame=True
 largeur_capture=ncol
 hauteur_capture=nrow
 
-#final_x = 16
-#final_y= 16    #postions souhaitées de la cible
 final_x = 100
-final_y= 100   #postions souhaitées de la cible
+final_y= 100
 
 class PendulumEnv(gym.Env):
 
@@ -123,23 +117,6 @@ class PendulumEnv(gym.Env):
             return 1
         return 0
     
-    # def step(self, u):
-        # reward=0
-        # done=0
-        # x,y=self.state_to_pos()
-        # if u==0 :   #right  
-            # x = min(x+1,((ncol-square_size)/step_size-1))
-        # if u==1 :    #left
-            # x= max(x-1,0)
-        # if u==2 : # up
-            # y= max(y-1,0)
-        # if u==3 :   #down  
-            # y = min(y+1,(nrow-square_size)/step_size-1)
-         
-        # if self.target_reached(x,y)==1:
-            # done=1
-            # reward=1
-            # print("target reached")
     
     def step(self, u):
         reward=0
