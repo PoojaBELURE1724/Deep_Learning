@@ -3,7 +3,6 @@ from gym import spaces
 from gym.utils import seeding
 import numpy as np
 from os import path
-#Pooja BELURE added this library
 import gym
 from gym import spaces
 from gym.utils import seeding
@@ -122,8 +121,6 @@ class PendulumEnv(gym.Env):
         reward=0
         done=0
         x,y=self.state_to_pos()
-#------------- For no external device -------------------------------------#
-        #if ext==False :
         if u==0 :   #right
             #print("right......................")
             x = min(x+step_size,(ncol-square_size)-1)
